@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { ScrollView } from "react-native";
 import { View, Text, StyleSheet, Image, SafeAreaView } from "react-native";
 import Logo from '../../../PrimeApp/assets/icons/Prime.png'
 import CustomTabComponent from "../../android/component/CustomTabComponent";
-import DiscoverMovies from "../../android/component/DiscoverMovies";
 import Main from './Main'
 import Movie from "./Movie";
+import Orginals from "./Orginals";
 import TVScreen from "./TVScreen";
 
 function renderHeader() {
@@ -30,8 +31,9 @@ const HomeScreen = ({ navigation }) => {
 
     const [menu, setMenu] = useState([
         { id: 1, title: 'Home', active: true, component: <Main /> },
-        { id: 2, title: 'Movies', active: false, component: <Movie /> },
+        { id: 2, title: 'Movie', active: false, component: <Movie /> },
         { id: 3, title: 'TV', active: false, component: <TVScreen /> },
+        { id: 4, title: 'Orginals', active: false, component: < Orginals /> },
     ])
 
     const handleMenuChange = (item) => {
@@ -49,13 +51,13 @@ const HomeScreen = ({ navigation }) => {
         <SafeAreaView
             style={{
                 width: '100%',
-                flex: 1,
-                backgroundColor: "white"
+                height: '100%',
+                // flex: 1,
+                backgroundColor: "black",
+
             }}>
             {renderHeader()}
             <CustomTabComponent menu={menu} handleMenuChange={handleMenuChange} />
-            {/* {topTabComponent} */}
-            {/* <DiscoverMovies /> */}
             {
                 menu.map(item => (item.active ? item.component : (<></>)))
             }

@@ -4,7 +4,7 @@ import React from 'react'
 export default function TVScreen() {
     return (
         <View>
-            <Text>TVScreen</Text>
+            <Text>TV Screen</Text>
         </View>
     )
 }

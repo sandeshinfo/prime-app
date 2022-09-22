@@ -1,5 +1,5 @@
-import { View, Text, TouchableOpacity, TouchableWithoutFeedback } from 'react-native'
-import React, { useState } from 'react'
+import { View, Text, TouchableOpacity } from 'react-native'
+import React from 'react'
 
 export default function CustomTabComponent({ menu, handleMenuChange }) {
 
@@ -17,7 +17,7 @@ export default function CustomTabComponent({ menu, handleMenuChange }) {
                 <TouchableOpacity
                     key={item.id}
                     style={{
-                        borderColor: item.active ? 'black' : 'none',
+                        borderColor: item.active ? 'white' : 'none',
                         borderBottomWidth: item.active ? 4 : 0,
                         paddingHorizontal: 20,
                         paddingVertical: 10,
@@ -27,7 +27,8 @@ export default function CustomTabComponent({ menu, handleMenuChange }) {
                     onPress={(e) => handleMenuChange(item)}
                 >
                     <Text style={{
-                        fontWeight: 'bold'
+                        fontWeight: 'bold',
+                        color: 'white'
                     }}>{item.title}</Text>
                 </TouchableOpacity>
             ))}

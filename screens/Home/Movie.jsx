@@ -1,4 +1,5 @@
 import React from "react";
+import { FlatList } from "react-native";
 import { View, Text, StyleSheet } from "react-native";
 
 
@@ -21,3 +22,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#8fcbbc'
     }
 })
+const renderItem = ({ renderItem }) => {
+
+}
