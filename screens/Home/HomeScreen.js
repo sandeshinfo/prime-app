@@ -28,9 +28,8 @@ function renderHeader() {
 }
 
 const HomeScreen = ({ navigation }) => {
-
     const [menu, setMenu] = useState([
-        { id: 1, title: 'Home', active: true, component: <Main /> },
+        { id: 1, title: 'Home', active: true, component: <Main navigation={navigation} /> },
         { id: 2, title: 'Movie', active: false, component: <Movie /> },
         { id: 3, title: 'TV', active: false, component: <TVScreen /> },
         { id: 4, title: 'Orginals', active: false, component: < Orginals /> },

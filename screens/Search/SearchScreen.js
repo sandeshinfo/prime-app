@@ -1,12 +1,16 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import MovieDetails from "../../android/component/MovieDetails";
 
 
-const SearchScreen = ({ navigation }) => {
+const SearchScreen = ({ route }) => {
     return (
-        <View style={styles.container}>
-            <Text>Search Screen</Text>
-        </View>
+        route.params?.details ?
+            <MovieDetails movieDetails={route.params.movieDetails} />
+            :
+            <View style={styles.container}>
+                <Text>Search Screen</Text>
+            </View>
     );
 }
 

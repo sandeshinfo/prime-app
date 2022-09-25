@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Image, ScrollView, Dimensions } from 'react-native';
+import PopularMovies from '../../android/component/PopularMovies';
 import TrendingMovies from '../../android/component/TrendingMovies';
 
 
@@ -49,8 +50,9 @@ export default function Main() {
                 resizeMode='contain'
                 style={{
                     width: '100%',
+                    marginVertical: 15
                 }} />
-            <TrendingMovies />
+            <PopularMovies />
         </ScrollView>
     );
 };

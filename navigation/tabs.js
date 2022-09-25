@@ -12,11 +12,14 @@ import MyStuffScreen from '../screens/MyStuff/MyStuffScreen';
 const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
+
     return (
         <Tab.Navigator
             screenOptions={{
                 showLabel: false,
                 headerShown: false,
+
+
                 // style: {
                 //     position: 'absolute',
                 //     bottom: 25,
@@ -28,20 +31,22 @@ const Tabs = () => {
                 // }
             }}
         >
-            <Tab.Screen name="Home" component={HomeScreen} options={{
-                tabBarIcon: ({ focused }) => (
-                    <View style={{ alignItems: 'center', justifyContent: "center", top: 10 }}>
-                        <Image
-                            source={require('../assets/icons/home.png')}
-                            resizeMode='contain'
-                            style={{
-                                width: 25,
-                                height: 25,
-                            }} />
-                        <Text style={{ fontSize: 12 }}>Home</Text>
-                    </View>
-                )
-            }} />
+            <Tab.Screen name="Home"
+                children={() => <HomeScreen />}
+                options={{
+                    tabBarIcon: ({ focused }) => (
+                        <View style={{ alignItems: 'center', justifyContent: "center", top: 10 }}>
+                            <Image
+                                source={require('../assets/icons/home.png')}
+                                resizeMode='contain'
+                                style={{
+                                    width: 25,
+                                    height: 25,
+                                }} />
+                            <Text style={{ fontSize: 12 }}>Home</Text>
+                        </View>
+                    )
+                }} />
             <Tab.Screen name="Store" component={StoreScreen}
                 options={{
                     tabBarIcon: ({ focused }) => (

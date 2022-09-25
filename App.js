@@ -5,8 +5,9 @@ import Tabs from './navigation/tabs';
 
 const App = () => {
   return (
-    <NavigationContainer>
+    <NavigationContainer >
       <Tabs />
+      {/* <StackNavigation /> */}
     </NavigationContainer>
 
   );

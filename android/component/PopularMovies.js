@@ -4,20 +4,16 @@ import { POSTER_IMAGE } from '../component/config';
 import { GET } from '../Services/API';
 import Loader from '../component/Loader';
 import { TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 
 
-const TrendingMovies = () => {
-
-
+const PopularMovies = () => {
 
     const [loading, setLoading] = useState(true);
     const [movies, setMovies] = useState();
-    const navigation = useNavigation()
 
     useEffect(() => {
         const getMovies = async () => {
-            const data = await GET('/movie/top_rated');
+            const data = await GET('/movie/popular');
             setMovies(data.results);
             setLoading(false);
         };
@@ -32,12 +28,12 @@ const TrendingMovies = () => {
                 <Loader />
             ) : (
                 <View>
-                    <Text style={{ color: 'white', marginVertical: 15 }}>Trending Movies</Text>
+                    <Text style={{ color: 'white', marginVertical: 15 }}>Popular Movies</Text>
                     <FlatList
                         keyExtractor={item => item.id}
                         data={movies}
                         horizontal
-                        renderItem={item => displayMovies(item, navigation)}
+                        renderItem={item => displayMovies(item)}
                     />
                 </View>
             )}
@@ -45,10 +41,10 @@ const TrendingMovies = () => {
     );
 };
 
-const displayMovies = ({ item }, navigation) => {
+const displayMovies = ({ item }) => {
     return (
         <View>
-            <TouchableOpacity onPress={() => { navigation.navigate('Search', { details: true, movieDetails: item }) }}>
+            <TouchableOpacity>
                 <Image
                     source={{ uri: `${POSTER_IMAGE}${item.poster_path}` }}
                     style={{
@@ -61,4 +57,4 @@ const displayMovies = ({ item }, navigation) => {
         </View>
     );
 };
-export default TrendingMovies;
+export default PopularMovies;
