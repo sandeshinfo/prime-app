@@ -5,7 +5,7 @@ import MovieDetails from "../../android/component/MovieDetails";
 
 const SearchScreen = ({ route }) => {
     return (
-        route.params?.details ?
+        route.params.details ?
             <MovieDetails movieDetails={route.params.movieDetails} />
             :
             <View style={styles.container}>
@@ -21,6 +21,6 @@ const styles = StyleSheet.create({
         flex: 1,
         allignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#8fcbbc'
+        backgroundColor: 'black'
     }
 })

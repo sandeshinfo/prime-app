@@ -4,12 +4,14 @@ import { POSTER_IMAGE } from '../component/config';
 import { GET } from '../Services/API';
 import Loader from '../component/Loader';
 import { TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 
 const PopularMovies = () => {
 
     const [loading, setLoading] = useState(true);
     const [movies, setMovies] = useState();
+    const navigation = useNavigation()
 
     useEffect(() => {
         const getMovies = async () => {
@@ -33,7 +35,7 @@ const PopularMovies = () => {
                         keyExtractor={item => item.id}
                         data={movies}
                         horizontal
-                        renderItem={item => displayMovies(item)}
+                        renderItem={item => displayMovies(item, navigation)}
                     />
                 </View>
             )}
@@ -41,10 +43,10 @@ const PopularMovies = () => {
     );
 };
 
-const displayMovies = ({ item }) => {
+const displayMovies = ({ item }, navigation) => {
     return (
         <View>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => { navigation.navigate('Search', { details: true, movieDetails: item }) }}>
                 <Image
                     source={{ uri: `${POSTER_IMAGE}${item.poster_path}` }}
                     style={{

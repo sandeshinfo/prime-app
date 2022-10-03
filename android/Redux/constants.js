@@ -1,0 +1,1 @@
+export const RENT_MOVIES = 'RENT_MOVIES'
